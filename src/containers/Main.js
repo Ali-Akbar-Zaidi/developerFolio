@@ -14,12 +14,22 @@ import Podcast from "./podcast/Podcast";
 import Education from "./education/Education";
 import ScrollToTopButton from "./topbutton/Top";
 import Twitter from "./twitter-embed/twitter";
-import Profile from "./profile/Profile";
+import Contact from "./contact/Contact";
+import GithubProfileCard from "../components/githubProfileCard/GithubProfileCard";
 import SplashScreen from "./splashScreen/SplashScreen";
 import {splashScreen} from "../portfolio";
 import {StyleProvider} from "../contexts/StyleContext";
 import {useLocalStorage} from "../hooks/useLocalStorage";
 import "./Main.scss";
+
+// GitHub profile data from your profile.json
+const githubProfileData = {
+  name: "Syed Hadi",
+  bio: "Passionate Software Developer | Building innovative solutions",
+  avatarUrl: "https://avatars.githubusercontent.com/u/144132405?u=07ba48b4b7bef4291f876b6fc06e908797256054&v=4",
+  location: "Lahore",
+  hireable: true
+};
 
 const Main = () => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
@@ -63,7 +73,8 @@ const Main = () => {
             <Talks />
             <Twitter />
             <Podcast />
-            <Profile />
+            <GithubProfileCard prof={githubProfileData} />
+            <Contact />
             <Footer />
             <ScrollToTopButton />
           </>

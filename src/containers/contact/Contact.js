@@ -9,6 +9,11 @@ import StyleContext from "../../contexts/StyleContext";
 
 export default function Contact() {
   const {isDark} = useContext(StyleContext);
+  
+  if (!contactInfo.display) {
+    return null;
+  }
+
   return (
     <Fade bottom duration={1000} distance="20px">
       <div className="main contact-margin-top" id="contact">
@@ -41,14 +46,18 @@ export default function Contact() {
                   <br />
                 </>
               )}
-              <a
-                className="contact-detail-email"
-                href={"mailto:" + contactInfo.email_address}
-              >
-                {contactInfo.email_address}
-              </a>
-              <br />
-              <br />
+              {contactInfo.email_address && (
+                <>
+                  <a
+                    className="contact-detail-email"
+                    href={"mailto:" + contactInfo.email_address}
+                  >
+                    {contactInfo.email_address}
+                  </a>
+                  <br />
+                  <br />
+                </>
+              )}
               <SocialMedia />
             </div>
           </div>
@@ -57,9 +66,9 @@ export default function Contact() {
               <DisplayLottie animationData={email} />
             ) : (
               <img
-                alt="Man working"
-                src={require("../../assets/images/contactMailDark.svg")}
-              ></img>
+                alt="Contact illustration"
+                src={require("../../assets/images/contactMailDark.svg").default}
+              />
             )}
           </div>
         </div>
