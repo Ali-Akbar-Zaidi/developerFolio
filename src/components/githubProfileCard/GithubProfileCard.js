@@ -1,6 +1,5 @@
 import React from "react";
 import "./GithubProfileCard.scss";
-import SocialMedia from "../../components/socialMedia/SocialMedia";
 import {isHireable} from "../../portfolio";
 import emoji from "react-easy-emoji";
 import {Fade} from "react-reveal";
@@ -46,7 +45,7 @@ export default function GithubProfileCard({prof}) {
                 Open for opportunities: {prof.hireable}
               </span>
             </div>
-            <SocialMedia />
+            
           </div>
           <div className="image-content-profile">
             <img
